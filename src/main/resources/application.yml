@@ -1,11 +1,7 @@
 
-
-server:
-  servlet:
-    context-path: /various-demo
 spring:
   application:
     name: various-demo
-
-
-
+server:
+  servlet:
+    context-path: /various-demo
