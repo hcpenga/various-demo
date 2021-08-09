@@ -2,6 +2,41 @@
 spring:
   application:
     name: various-demo
+
+
+  #数据库配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/hcTest?useUnicode=true&useSSL=false&characterEncoding=utf-8
+    username: root
+    password: admin
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
 server:
   servlet:
     context-path: /various-demo
+
+
+#logging:
+#  level:
+##    com.example.variousdemo: trace
+#    root: debug
+
+
+#mybatis-plus:
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    auto-mapping-behavior: full
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  mapper-locations: classpath*:mapper/**/*Mapper.xml
+#  global-config:
+#    # 逻辑删除配置
+#    db-config:
+#      # 删除前
+#      logic-not-delete-value: 1
+#      # 删除后
+#      logic-delete-value: 0
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

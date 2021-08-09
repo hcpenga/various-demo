@@ -7,8 +7,8 @@ import sun.misc.BASE64Encoder;
 import java.io.*;
 
 /**
- * ¹¦ÄÜÃèÊö£º
- * ¡´Base64Á÷ÓëPDFÎÄ¼şµÄ»¥»»¡µ
+ * åŠŸèƒ½æè¿°ï¼š
+ * ã€ˆBase64æµä¸PDFæ–‡ä»¶çš„äº’æ¢ã€‰
  * @Date: 18:40 2021/7/6 0006
  **/
 public class Base64Utils {
@@ -17,17 +17,17 @@ public class Base64Utils {
     static BASE64Decoder decoder = new sun.misc.BASE64Decoder();
 
     public static void main(String[] args) {
-        // ½«PDF¸ñÊ½ÎÄ¼ş×ª³Ébase64±àÂë
+        // å°†PDFæ ¼å¼æ–‡ä»¶è½¬æˆbase64ç¼–ç 
         String base64String = getPDFBinary(new File("D:\\signed_dest.pdf"));
         System.out.println(base64String);
         base64StringToPDF(base64String,"D:test.pdf");
     }
 
     /**
-     *  ½«PDF×ª»»³Ébase64±àÂë
-     *  1.Ê¹ÓÃBufferedInputStreamºÍFileInputStream´ÓFileÖ¸¶¨µÄÎÄ¼şÖĞ¶ÁÈ¡ÄÚÈİ£»
-     *  2.È»ºó½¨Á¢Ğ´Èëµ½ByteArrayOutputStreamµ×²ãÊä³öÁ÷¶ÔÏóµÄ»º³åÊä³öÁ÷BufferedOutputStream
-     *  3.µ×²ãÊä³öÁ÷×ª»»³É×Ö½ÚÊı×é£¬È»ºóÓÉBASE64EncoderµÄ¶ÔÏó¶ÔÁ÷½øĞĞ±àÂë
+     *  å°†PDFè½¬æ¢æˆbase64ç¼–ç 
+     *  1.ä½¿ç”¨BufferedInputStreamå’ŒFileInputStreamä»FileæŒ‡å®šçš„æ–‡ä»¶ä¸­è¯»å–å†…å®¹ï¼›
+     *  2.ç„¶åå»ºç«‹å†™å…¥åˆ°ByteArrayOutputStreamåº•å±‚è¾“å‡ºæµå¯¹è±¡çš„ç¼“å†²è¾“å‡ºæµBufferedOutputStream
+     *  3.åº•å±‚è¾“å‡ºæµè½¬æ¢æˆå­—èŠ‚æ•°ç»„ï¼Œç„¶åç”±BASE64Encoderçš„å¯¹è±¡å¯¹æµè¿›è¡Œç¼–ç 
      * */
     public static String getPDFBinary(File file) {
         FileInputStream fin = null;
@@ -35,13 +35,13 @@ public class Base64Utils {
         ByteArrayOutputStream baos = null;
         BufferedOutputStream bout = null;
         try {
-            // ½¨Á¢¶ÁÈ¡ÎÄ¼şµÄÎÄ¼şÊä³öÁ÷
+            // å»ºç«‹è¯»å–æ–‡ä»¶çš„æ–‡ä»¶è¾“å‡ºæµ
             fin = new FileInputStream(file);
-            // ÔÚÎÄ¼şÊä³öÁ÷ÉÏ°²×°½ÚµãÁ÷£¨¸ü´óĞ§ÂÊ¶ÁÈ¡£©
+            // åœ¨æ–‡ä»¶è¾“å‡ºæµä¸Šå®‰è£…èŠ‚ç‚¹æµï¼ˆæ›´å¤§æ•ˆç‡è¯»å–ï¼‰
             bin = new BufferedInputStream(fin);
-            // ´´½¨Ò»¸öĞÂµÄ byte Êı×éÊä³öÁ÷£¬Ëü¾ßÓĞÖ¸¶¨´óĞ¡µÄ»º³åÇøÈİÁ¿
+            // åˆ›å»ºä¸€ä¸ªæ–°çš„ byte æ•°ç»„è¾“å‡ºæµï¼Œå®ƒå…·æœ‰æŒ‡å®šå¤§å°çš„ç¼“å†²åŒºå®¹é‡
             baos = new ByteArrayOutputStream();
-            // ´´½¨Ò»¸öĞÂµÄ»º³åÊä³öÁ÷£¬ÒÔ½«Êı¾İĞ´ÈëÖ¸¶¨µÄµ×²ãÊä³öÁ÷
+            // åˆ›å»ºä¸€ä¸ªæ–°çš„ç¼“å†²è¾“å‡ºæµï¼Œä»¥å°†æ•°æ®å†™å…¥æŒ‡å®šçš„åº•å±‚è¾“å‡ºæµ
             bout = new BufferedOutputStream(baos);
             byte[] buffer = new byte[1024];
             int len = bin.read(buffer);
@@ -49,12 +49,12 @@ public class Base64Utils {
                 bout.write(buffer, 0, len);
                 len = bin.read(buffer);
             }
-            // Ë¢ĞÂ´ËÊä³öÁ÷²¢Ç¿ÖÆĞ´³öËùÓĞ»º³åµÄÊä³ö×Ö½Ú£¬±ØĞëÕâĞĞ´úÂë£¬·ñÔòÓĞ¿ÉÄÜÓĞÎÊÌâ
+            // åˆ·æ–°æ­¤è¾“å‡ºæµå¹¶å¼ºåˆ¶å†™å‡ºæ‰€æœ‰ç¼“å†²çš„è¾“å‡ºå­—èŠ‚ï¼Œå¿…é¡»è¿™è¡Œä»£ç ï¼Œå¦åˆ™æœ‰å¯èƒ½æœ‰é—®é¢˜
             bout.flush();
             byte[] bytes = baos.toByteArray();
-            // sun¹«Ë¾µÄAPI
+            // sunå…¬å¸çš„API
             return encoder.encodeBuffer(bytes).trim();
-            // apache¹«Ë¾µÄAPI
+            // apacheå…¬å¸çš„API
             // return Base64.encodeBase64String(bytes);
 
         } catch (FileNotFoundException e) {
@@ -65,7 +65,7 @@ public class Base64Utils {
             try {
                 fin.close();
                 bin.close();
-                // ¹Ø±Õ ByteArrayOutputStream ÎŞĞ§¡£´ËÀàÖĞµÄ·½·¨ÔÚ¹Ø±Õ´ËÁ÷ºóÈÔ¿É±»µ÷ÓÃ£¬¶ø²»»á²úÉúÈÎºÎ IOException
+                // å…³é—­ ByteArrayOutputStream æ— æ•ˆã€‚æ­¤ç±»ä¸­çš„æ–¹æ³•åœ¨å…³é—­æ­¤æµåä»å¯è¢«è°ƒç”¨ï¼Œè€Œä¸ä¼šäº§ç”Ÿä»»ä½• IOException
                 // IOException
                 // baos.close();
                 bout.close();
@@ -78,32 +78,32 @@ public class Base64Utils {
 
 
     /**
-     * ½«base64±àÂë×ª»»³ÉPDF
+     * å°†base64ç¼–ç è½¬æ¢æˆPDF
      *
      * @param base64sString
-     *            1.Ê¹ÓÃBASE64Decoder¶Ô±àÂëµÄ×Ö·û´®½âÂë³É×Ö½ÚÊı×é
-     *            2.Ê¹ÓÃµ×²ãÊäÈëÁ÷ByteArrayInputStream¶ÔÏó´Ó×Ö½ÚÊı×éÖĞ»ñÈ¡Êı¾İ£»
-     *            3.½¨Á¢´Óµ×²ãÊäÈëÁ÷ÖĞ¶ÁÈ¡Êı¾İµÄBufferedInputStream»º³åÊä³öÁ÷¶ÔÏó£»
-     *            4.Ê¹ÓÃBufferedOutputStreamºÍFileOutputSteamÊä³öÊı¾İµ½Ö¸¶¨µÄÎÄ¼şÖĞ
+     *            1.ä½¿ç”¨BASE64Decoderå¯¹ç¼–ç çš„å­—ç¬¦ä¸²è§£ç æˆå­—èŠ‚æ•°ç»„
+     *            2.ä½¿ç”¨åº•å±‚è¾“å…¥æµByteArrayInputStreamå¯¹è±¡ä»å­—èŠ‚æ•°ç»„ä¸­è·å–æ•°æ®ï¼›
+     *            3.å»ºç«‹ä»åº•å±‚è¾“å…¥æµä¸­è¯»å–æ•°æ®çš„BufferedInputStreamç¼“å†²è¾“å‡ºæµå¯¹è±¡ï¼›
+     *            4.ä½¿ç”¨BufferedOutputStreamå’ŒFileOutputSteamè¾“å‡ºæ•°æ®åˆ°æŒ‡å®šçš„æ–‡ä»¶ä¸­
      */
     public static void base64StringToPDF(String base64sString,String filePath) {
         BufferedInputStream bin = null;
         FileOutputStream fout = null;
         BufferedOutputStream bout = null;
         try {
-            // ½«base64±àÂëµÄ×Ö·û´®½âÂë³É×Ö½ÚÊı×é
+            // å°†base64ç¼–ç çš„å­—ç¬¦ä¸²è§£ç æˆå­—èŠ‚æ•°ç»„
             byte[] bytes = decoder.decodeBuffer(base64sString);
-            // apache¹«Ë¾µÄAPI
+            // apacheå…¬å¸çš„API
             // byte[] bytes = Base64.decodeBase64(base64sString);
-            // ´´½¨Ò»¸ö½«bytes×÷ÎªÆä»º³åÇøµÄByteArrayInputStream¶ÔÏó
+            // åˆ›å»ºä¸€ä¸ªå°†bytesä½œä¸ºå…¶ç¼“å†²åŒºçš„ByteArrayInputStreamå¯¹è±¡
             ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-            // ´´½¨´Óµ×²ãÊäÈëÁ÷ÖĞ¶ÁÈ¡Êı¾İµÄ»º³åÊäÈëÁ÷¶ÔÏó
+            // åˆ›å»ºä»åº•å±‚è¾“å…¥æµä¸­è¯»å–æ•°æ®çš„ç¼“å†²è¾“å…¥æµå¯¹è±¡
             bin = new BufferedInputStream(bais);
-            // Ö¸¶¨Êä³öµÄÎÄ¼ş
+            // æŒ‡å®šè¾“å‡ºçš„æ–‡ä»¶
             File file = new File(filePath);
-            // ´´½¨µ½Ö¸¶¨ÎÄ¼şµÄÊä³öÁ÷
+            // åˆ›å»ºåˆ°æŒ‡å®šæ–‡ä»¶çš„è¾“å‡ºæµ
             fout = new FileOutputStream(file);
-            // ÎªÎÄ¼şÊä³öÁ÷¶Ô½Ó»º³åÊä³öÁ÷¶ÔÏó
+            // ä¸ºæ–‡ä»¶è¾“å‡ºæµå¯¹æ¥ç¼“å†²è¾“å‡ºæµå¯¹è±¡
             bout = new BufferedOutputStream(fout);
 
             byte[] buffers = new byte[1024];
@@ -112,7 +112,7 @@ public class Base64Utils {
                 bout.write(buffers, 0, len);
                 len = bin.read(buffers);
             }
-            // Ë¢ĞÂ´ËÊä³öÁ÷²¢Ç¿ÖÆĞ´³öËùÓĞ»º³åµÄÊä³ö×Ö½Ú£¬±ØĞëÕâĞĞ´úÂë£¬·ñÔòÓĞ¿ÉÄÜÓĞÎÊÌâ
+            // åˆ·æ–°æ­¤è¾“å‡ºæµå¹¶å¼ºåˆ¶å†™å‡ºæ‰€æœ‰ç¼“å†²çš„è¾“å‡ºå­—èŠ‚ï¼Œå¿…é¡»è¿™è¡Œä»£ç ï¼Œå¦åˆ™æœ‰å¯èƒ½æœ‰é—®é¢˜
             bout.flush();
 
         } catch (IOException e) {
