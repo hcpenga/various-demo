@@ -1,5 +1,7 @@
 package com.example.variousdemo.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/log")
+@Api(tags = "日志操作")
 public class LogController {
     private static final Logger LOG = LoggerFactory.getLogger(LoggerFactory.class);
 
@@ -25,6 +28,7 @@ public class LogController {
      * @return: void
      **/
     @GetMapping("/outPut")
+    @ApiOperation(value = "测试日志输出")
     public void outPut(){
         //SpringBoot默认是info级别,只会输出info及以上级别的日志
         LOG.trace("输出trace日志..");

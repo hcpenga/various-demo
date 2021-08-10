@@ -1,6 +1,8 @@
 package com.example.variousdemo.controller;
 
 import com.example.variousdemo.util.Base64Utils;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,6 +15,7 @@ import java.io.*;
  */
 @RestController
 @RequestMapping("/pdf")
+@Api(tags = "Base64流与PDF文件的互换")
 public class PdfController {
 
     /**
@@ -24,6 +27,7 @@ public class PdfController {
      * @return: java.lang.String
      **/
     @GetMapping("/base64ToPDF")
+    @ApiOperation(value = "Base64流转换为PDF文件")
     public String base64ToPDF(@RequestBody String base64String, @RequestBody String filePath){
         Base64Utils.base64StringToPDF(base64String,filePath);
         return "转换为PDF文件完毕";
@@ -37,14 +41,11 @@ public class PdfController {
      * @return: java.lang.String
      **/
     @PostMapping("/pdfToBase64")
+    @ApiOperation(value = "PDF文件转化为base64流")
     public String pdfToBase64(MultipartFile file) throws IOException {
         File file1 = multipartFileToFile(file);
         String base64String = Base64Utils.getPDFBinary(file1);
         return base64String;
-    }
-    @GetMapping("/testPDF")
-    public String testPDF(){
-        return "正常输出";
     }
 
     /**

@@ -49,20 +49,15 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- knife4j（Swagger2）接口文档 -->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.10.5</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.10.5</version>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>2.0.6</version>
         </dependency>
 
 
-
-
+        <!--mysql驱动 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -72,6 +67,7 @@
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.1.20</version>
         </dependency>
+
         <!--MyBatis-Plus-->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -95,20 +91,34 @@
             <scope>test</scope>
         </dependency>
 
+
+        <!--SpringBoot热部署配置 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
 
             <plugin><!--编译跳过测试文件检查的生命周期-->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <!--热部署配置-->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!--fork:如果没有该项配置,整个devtools不会起作用-->
+                    <fork>true</fork>
                 </configuration>
             </plugin>
         </plugins>

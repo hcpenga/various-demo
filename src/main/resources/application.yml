@@ -3,13 +3,12 @@ spring:
   application:
     name: various-demo
 
-
-  #Êı¾İ¿âÅäÖÃ
+  #æ•°æ®åº“é…ç½®
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/hcTest?useUnicode=true&useSSL=false&characterEncoding=utf-8
     username: root
     password: admin
-    # Ê¹ÓÃdruidÊı¾İÔ´
+    # ä½¿ç”¨druidæ•°æ®æº
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
 
@@ -31,12 +30,25 @@ server:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #  mapper-locations: classpath*:mapper/**/*Mapper.xml
 #  global-config:
-#    # Âß¼­É¾³ıÅäÖÃ
+#    # é€»è¾‘åˆ é™¤é…ç½®
 #    db-config:
-#      # É¾³ıÇ°
+#      # åˆ é™¤å‰
 #      logic-not-delete-value: 1
-#      # É¾³ıºó
+#      # åˆ é™¤å
 #      logic-delete-value: 0
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+#é…ç½®swaggeré…ç½®
+knife4j:
+  basic:
+    username: admin
+    password: 123
+    enable: true #å¼€å¯è®¤è¯
+  production: false #é»˜è®¤æ˜¯false ,å±è”½æ‰€æœ‰Swaggerçš„ç›¸å…³èµ„æº
+  enable: true #æ˜¯å¦å¼€å¯swagger
+
+
