@@ -37,4 +37,7 @@ public class Testone extends Model<Testone> {
         return null;
     }
 
+    public static void main(String[] args) {
+
+    }
 }
