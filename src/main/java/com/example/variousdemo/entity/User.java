@@ -34,4 +34,8 @@ public class User {
                 .sign(Algorithm.HMAC256(user.getPassword()));
         return token;
     }
+
+    public static void main(String[] args) {
+        System.out.println("测试");
+    }
 }
