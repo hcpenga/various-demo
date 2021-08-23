@@ -30,24 +30,26 @@ public class RedisController {
 
     @GetMapping("/testReduce")
     public String testReduce(){
-        String key = "Mark";
+        String key = "bvn";
         String uuid = UUID.randomUUID().toString();
-        Boolean flag = stringRedisTemplate.opsForValue().setIfAbsent(key,uuid,10, TimeUnit.SECONDS);
-        if(false){
+        Boolean flag = stringRedisTemplate.opsForValue().setIfAbsent(key,uuid,30, TimeUnit.SECONDS);
+        if(!flag){
             return "no way";
         }
-        try(){
-
-        }catch (){
-
-        }
-        synchronized (this) {
-            if(num > 0){
-                num = num -1;
-                System.out.println("库存："+num);
+        try{
+            int stock = Integer.parseInt(stringRedisTemplate.opsForValue().get("stock"));
+            if(stock > 0){
+                int realStock = stock -1;
+                stringRedisTemplate.opsForValue().set("stock",realStock+"");
+                System.out.println("库存："+realStock);
             } else {
                 System.out.println("库存不足");
             }
+        }finally {
+            if(uuid.equals(stringRedisTemplate.opsForValue().get(key))){
+                stringRedisTemplate.delete(key);
+            }
         }
+        return "finish";
     }
 }
