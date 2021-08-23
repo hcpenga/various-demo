@@ -23,4 +23,5 @@ public class HelloController {
     public String hello(){
         return "welcome to myasssa wssorld";
     }
+
 }
