@@ -8,5 +8,4 @@ public interface MailService {
 
     void sendAttachmentsMail(String to,String subject,String content,String filePath);
 
-    void sendInlineResourceMail(String to,String subject,String content,String rscId);
 }

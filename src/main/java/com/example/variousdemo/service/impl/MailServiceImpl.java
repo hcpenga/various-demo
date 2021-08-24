@@ -90,9 +90,4 @@ public class MailServiceImpl implements MailService {
 
         }
     }
-
-    @Override
-    public void sendInlineResourceMail(String to, String subject, String content, String rscId) {
-
-    }
 }
