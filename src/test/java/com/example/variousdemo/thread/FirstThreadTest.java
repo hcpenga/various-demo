@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @className: FirstThread
- * @description:ÓĞN¸öÏß³Ì,ÒªÇóË³ĞòÊä³öABC
+ * @description:æœ‰Nä¸ªçº¿ç¨‹,è¦æ±‚é¡ºåºè¾“å‡ºABC
  * @created: 2021/08/26 09:25
  */
 @RunWith(SpringRunner.class)
@@ -51,7 +51,7 @@ public class FirstThreadTest {
         });
 
         Thread threadB = new Thread(() ->{
-            //Éè¶¨ÃÅÀ¸,ÒÔÃâ±»ÏÈÖ´ĞĞ
+            //è®¾å®šé—¨æ ,ä»¥å…è¢«å…ˆæ‰§è¡Œ
             try{
                 latchB.await();
             } catch (InterruptedException e) {
@@ -77,7 +77,7 @@ public class FirstThreadTest {
         });
 
         Thread threadC = new Thread(() ->{
-            //ÉèÁ¢ÃÅÀ¸,ÒÔÃâ±»ÏÈÖ´ĞĞ
+            //è®¾ç«‹é—¨æ ,ä»¥å…è¢«å…ˆæ‰§è¡Œ
             try{
                 latchC.await();
             } catch (InterruptedException e) {

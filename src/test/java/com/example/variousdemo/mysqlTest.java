@@ -56,19 +56,19 @@ public class mysqlTest {
 
     @Test
     public void conditionSearch(){
-        //Ìõ¼ş²éÑ¯
+        //æ¡ä»¶æŸ¥è¯¢
 //       Testone testone = testoneService.getOne(new QueryWrapper<Testone>()
 //               .lambda().eq(Testone::getName,"Mark").eq(Testone::getId,"1").last("limit 1"));
 //       if(testone != null){
 //           System.out.println(testone.getName());
 //       }
-        //·ÖÒ³²éÑ¯
+        //åˆ†é¡µæŸ¥è¯¢
         int pageNum = 1;
         int pageSize = 1;
         IPage<Testone> testoneIPage = testoneService.page(new Page<>(pageNum,pageSize),new QueryWrapper<Testone>().lambda().eq(Testone::getDeptId,"123"));
         List<Testone> testoneList = testoneIPage.getRecords();
         testoneList.forEach(System.out::println);
-        //×ÜÒ³Êı
+        //æ€»é¡µæ•°
         long allPageNum = testoneIPage.getPages();
         System.out.println(allPageNum);
     }

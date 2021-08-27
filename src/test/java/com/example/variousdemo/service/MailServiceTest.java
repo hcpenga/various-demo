@@ -24,7 +24,7 @@ public class MailServiceTest {
     private TemplateEngine templateEngine;
     @Test
     public void testSimpleMail() {
-        mailService.sendSimpleMail("295836675@qq.com","hcTest-²âÊÔ","Hello,World");
+        mailService.sendSimpleMail("295836675@qq.com","hcTest-æµ‹è¯•","Hello,World");
     }
 
     @Test
@@ -36,12 +36,12 @@ public class MailServiceTest {
     @Test
     public void testAttachmentsMail(){
         String filePath = "F:\\Readme(zh_CN).pdf";
-        mailService.sendAttachmentsMail("295836675@qq.com","hcTest-Attachment","ÓÐ¸½¼þ",filePath);
+        mailService.sendAttachmentsMail("295836675@qq.com","hcTest-Attachment","æœ‰é™„ä»¶",filePath);
     }
 
     @Test
     public void sendTemplateMail(){
-        //´´½¨ÓÊ¼þÕýÎÄ
+        //åˆ›å»ºé‚®ä»¶æ­£æ–‡
         Context context = new Context();
         context.setVariable("id","006");
         String emailContent = templateEngine.process("emailTemplate",context);

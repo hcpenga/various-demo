@@ -40,6 +40,11 @@ public class FanoutRabbitConfig {
         return new Queue("fanout.C");
     }
 
+    //HCTest--定义消息发送
+    @Bean
+    public Queue QQMessage(){
+        return new Queue("fanout.QQMessage");
+    }
     //定义交换机
     @Bean
     FanoutExchange fanoutExchange(){
@@ -62,5 +67,11 @@ public class FanoutRabbitConfig {
     @Bean
     Binding bindingExchangeC(Queue CMessage,FanoutExchange fanoutExchange){
         return BindingBuilder.bind(CMessage).to(fanoutExchange);
+    }
+
+    //绑定
+    @Bean
+    Binding bindingExchangeQQMessage(Queue QQMessage,FanoutExchange fanoutExchange){
+        return BindingBuilder.bind(QQMessage).to(fanoutExchange);
     }
 }
