@@ -17,6 +17,8 @@
         <java.version>1.8</java.version>
         <mybatis.plus.version>3.3.1</mybatis.plus.version>
     </properties>
+    <packaging>war</packaging>
+
     <dependencies>
         <!--基础框架-->
 <!--        <dependency>-->
@@ -127,6 +129,7 @@
             <artifactId>javax.mail</artifactId>
             <version>RELEASE</version>
         </dependency>
+
         <!-- 模板引擎 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -137,6 +140,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
+        <!--修改i内置Tomcat为外置-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
