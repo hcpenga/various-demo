@@ -74,4 +74,12 @@ knife4j:
   production: false #默认是false ,屏蔽所有Swagger的相关资源
   enable: true #是否开启swagger
 
-
+#配置JWT
+config:
+  jwt:
+    #加密密钥
+    secret: abcdefg1234567
+    #token有效时长
+    expire: 3600
+    #header名称
+    header: token
