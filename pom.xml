@@ -168,6 +168,12 @@
             <version>2.4</version>
             <classifier>jdk15</classifier>
         </dependency>
+
+        <!-- 接入AOP切面-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
