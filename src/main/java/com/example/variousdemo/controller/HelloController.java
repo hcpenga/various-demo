@@ -22,6 +22,7 @@ public class HelloController {
     @GetMapping("/hello")
     public String hello(){
         System.out.println("第一次提交");
+        System.out.println("第二次提交");
         return "welcome to myasssa wssorld";
     }
 
