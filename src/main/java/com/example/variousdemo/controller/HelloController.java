@@ -21,6 +21,7 @@ public class HelloController {
     @ApiOperation("第一个测试用例")
     @GetMapping("/hello")
     public String hello(){
+        System.out.println("sccc");
         System.out.println("第二次提交");
         return "welcome to myasssa wssorld";
     }
