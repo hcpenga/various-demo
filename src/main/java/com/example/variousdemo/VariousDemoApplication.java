@@ -25,10 +25,4 @@ public class VariousDemoApplication extends SpringBootServletInitializer {
 //        registry.addResourceHandler("doc.html").addResourceLocations("classpath:/META-INF/resources/");
 //        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
 //    }
-
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(VariousDemoApplication.class);
-    }
 }

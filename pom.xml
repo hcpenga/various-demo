@@ -17,8 +17,6 @@
         <java.version>1.8</java.version>
         <mybatis.plus.version>3.3.1</mybatis.plus.version>
     </properties>
-    <packaging>war</packaging>
-
     <dependencies>
         <!--基础框架-->
 <!--        <dependency>-->
@@ -129,7 +127,6 @@
             <artifactId>javax.mail</artifactId>
             <version>RELEASE</version>
         </dependency>
-
         <!-- 模板引擎 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -140,39 +137,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
-
-        <!--修改i内置Tomcat为外置-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope> <!-- 打成war的时候打开注释，本地开发用内嵌tomcat时加上注释 -->
-        </dependency>
-
-        <!-- JWT依赖 -->
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.7.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.auth0</groupId>
-            <artifactId>java-jwt</artifactId>
-            <version>3.4.0</version>
-        </dependency>
-
-        <!-- JSON -->
-        <dependency>
-            <groupId>net.sf.json-lib</groupId>
-            <artifactId>json-lib</artifactId>
-            <version>2.4</version>
-            <classifier>jdk15</classifier>
-        </dependency>
-
-        <!-- 接入AOP切面-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
     </dependencies>
 
