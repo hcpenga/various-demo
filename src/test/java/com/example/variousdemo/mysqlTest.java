@@ -32,6 +32,7 @@ public class mysqlTest {
         testone.setName("Jack");
         testone.setSalary(new Float("22"));
         testoneService.save(testone);
+        System.out.println("个人测试");
     }
 
     @Test
