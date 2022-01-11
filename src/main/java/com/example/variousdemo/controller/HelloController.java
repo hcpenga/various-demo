@@ -1,5 +1,7 @@
 package com.example.variousdemo.controller;
 
+import com.example.variousdemo.annotation.hcLog;
+import com.example.variousdemo.entity.User;
 import com.example.variousdemo.helper.TestHelper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
@@ -23,9 +25,10 @@ public class HelloController {
     @Autowired
     private TestHelper testHelper;
 
+    @hcLog
     @ApiOperation("第一个测试用例")
     @GetMapping("/hello")
-    public String hello(){
+    public String hello(User user){
         System.out.println("第一次提交");
         System.out.println("第二次提交");
         return "welcome to myasssa wssorld";
