@@ -50,6 +50,7 @@ mail:
 server:
   servlet:
     context-path: /various-demo
+  port: 8082
 
 
 #logging:

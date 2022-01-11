@@ -142,6 +142,10 @@
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
         <!--修改i内置Tomcat为外置-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
