@@ -32,7 +32,7 @@ public class HelloController {
     @ApiOperation("第一个测试用例")
     @GetMapping("/hello")
     public String hello(User user){
-        MDC.put("reqId", UUID.randomUUID().toString());
+        MDC.put("hcReqId", UUID.randomUUID().toString());
         logger.info("Hello world one");
         return "Hello world one";
     }
@@ -40,6 +40,7 @@ public class HelloController {
     @GetMapping("/hello2")
     public String hello2(){
         logger.info("Hello world two");
+        logger.info("Hello world two second");
         return "Hello world two";
     }
 
