@@ -3,6 +3,7 @@ package com.example.variousdemo.controller;
 import com.example.variousdemo.annotation.hcLog;
 import com.example.variousdemo.entity.User;
 import com.example.variousdemo.helper.TestHelper;
+import com.sun.istack.internal.logging.Logger;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/helloController")
 public class HelloController {
+
 
     @Autowired
     private TestHelper testHelper;
