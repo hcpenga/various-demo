@@ -41,7 +41,10 @@ public class HelloController {
     public String hello2(){
         logger.info("Hello world two");
         logger.info("Hello world two second");
-        return "Hello world two";
+        if(true){
+            throw new RuntimeException("Value for condition cannot be null");
+        }
+        return "Hello world two thrid";
     }
 
     @GetMapping("/getValue")
