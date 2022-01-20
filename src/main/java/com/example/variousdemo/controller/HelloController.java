@@ -1,6 +1,7 @@
 package com.example.variousdemo.controller;
 
 import com.example.variousdemo.annotation.hcLog;
+import com.example.variousdemo.entity.Result;
 import com.example.variousdemo.entity.User;
 import com.example.variousdemo.helper.TestHelper;
 import com.example.variousdemo.pattern.ChainPatternDemo;
@@ -37,10 +38,9 @@ public class HelloController {
     @hcLog
     @ApiOperation("第一个测试用例")
     @GetMapping("/hello")
-    public String hello(User user){
-        MDC.put("hcReqId", UUID.randomUUID().toString());
+    public Result<String> hello(User user){
         logger.info("Hello world one");
-        return "Hello world one";
+        return new Result<>("Hello world one");
     }
 
     @GetMapping("/hello2")
