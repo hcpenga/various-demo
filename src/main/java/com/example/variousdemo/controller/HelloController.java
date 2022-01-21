@@ -32,7 +32,7 @@ public class HelloController {
     @Autowired
     private TestHelper testHelper;
 
-    @Autowired
+    @Autowiredß
     private ChainPatternDemo chainPatternDemo;
 
     @hcLog
@@ -40,6 +40,7 @@ public class HelloController {
     @GetMapping("/hello")
     public Result<String> hello(User user){
         logger.info("Hello world one");
+        logger.info("ccccccddd");
         return new Result<>("Hello world one");
     }
 
