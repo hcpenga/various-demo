@@ -76,4 +76,9 @@ public class HelloController {
     public void hcTest(){
         System.out.println("HC欢迎来到我的世界");
     }
+
+    @GetMapping("/fixTest")
+    public void fixTest(){
+        System.out.println("我是一个修复分支");
+    }
 }
