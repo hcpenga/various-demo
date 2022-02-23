@@ -71,4 +71,9 @@ public class HelloController {
     public void testHC(){
         System.out.println("我就是来玩一下");
     }
+
+    @GetMapping("/hcTest")
+    public void hcTest(){
+        System.out.println("HC欢迎来到我的世界");
+    }
 }
