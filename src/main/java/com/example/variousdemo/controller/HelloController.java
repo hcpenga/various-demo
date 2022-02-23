@@ -66,4 +66,9 @@ public class HelloController {
         Response exec = chainPatternDemo.exec(request, response);
 
     }
+
+    @GetMapping("/testHC")
+    public void testHC(){
+        System.out.println("我就是来玩一下");
+    }
 }
