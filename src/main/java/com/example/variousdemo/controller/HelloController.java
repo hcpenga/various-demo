@@ -32,7 +32,7 @@ public class HelloController {
     @Autowired
     private TestHelper testHelper;
 
-    @Autowiredß
+    @Autowired
     private ChainPatternDemo chainPatternDemo;
 
     @hcLog
